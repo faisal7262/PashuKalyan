@@ -1,0 +1,423 @@
+<h3 style="text-align: center;">PASHU - KALYAN FOUNDATION</h3>
+<hr>
+<h5 style="text-align: center;">Semen & LN2 Requirement Details</h5>
+<hr>
+<div class="container">
+    @if (saleId == undefined) {
+    <div class="col">
+        <label for="Customer List" class="form-label">Customer List</label>
+        <select class="form-select" aria-label="Default select example" (change)="changeCustomer($event)">
+            <option selected>Select Customer</option>
+            @for (item of customers; track $index) {
+            <option [value]="item._id">{{item.firstName}} {{item.lastName}}</option>
+            }
+        </select>
+    </div>
+    }
+    <hr>
+    @if (customer || saleId || isEditMode) {
+    <form [formGroup]="saleForm" class="form-container">
+        <div class="row ">
+            <div class="col">
+                <label for="lot" class="form-label">Lot Number</label>
+            </div>
+            <div class="col">
+                <label for="date" class="form-label">Sale Date</label>
+            </div>
+            <div class="col">
+                <label for="bill No" class="form-label">Bill Number</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="lot" id="lot">
+            </div>
+            <div class="col">
+                <input type="date" class="form-control" formControlName="billDate" id="billDate">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="billNo" id="billNo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="Name" class="form-label">Customer Name</label>
+            </div>
+            <div class="col">
+                <label for="mobile" class="form-label">Mobile Number</label>
+            </div>
+            <div class="col">
+                <label for="mobile" class="form-label">Village</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" [(ngModel)]="fullname" class="form-control" id="customerName"
+                    formControlName="customerName">
+            </div>
+            <div class="col">
+                <input type="text" [(ngModel)]="mobile" class="form-control" id="mobileNo" formControlName="mobileNo">
+            </div>
+            <div class="col">
+                <input type="text" [(ngModel)]="Village" class="form-control" id="village" formControlName="village">
+            </div>
+        </div>
+        <hr>
+        <div class="row ">
+            <div class="col">
+                <label for="MB" class="form-label">MB</label>
+            </div>
+            <div class="col">
+                <label for="JF" class="form-label">JF</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="MB" id="MB">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="JF" id="JF">
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <label for="PDR" class="form-label">PDR</label>
+            </div>
+            <div class="col">
+                <label for="HF" class="form-label">HF</label>
+            </div>
+            <div class="col">
+                <label for="HFX" class="form-label">HFX</label>
+            </div>
+            <div class="col">
+                <label for="JB" class="form-label">JB</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="PDR" id="PDR">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="HF" id="HF">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="HFX" id="HFX">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="JB" id="JB">
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <label for="JBX" class="form-label">JBX</label>
+            </div>
+            <div class="col">
+                <label for="KH" class="form-label">KH</label>
+            </div>
+            <div class="col">
+                <label for="RK" class="form-label">RK</label>
+            </div>
+            <div class="col">
+                <label for="GIR" class="form-label">GIR</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="JBX" id="JBX">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="KH" id="KH">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="RK" id="RK">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="GIR" id="GIR">
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <label for="SH" class="form-label">SH</label>
+            </div>
+            <div class="col">
+                <label for="DN" class="form-label">DN</label>
+            </div>
+            <div class="col">
+                <label for="SHEETH" class="form-label">SHEATH</label>
+            </div>
+            <div class="col">
+                <label for="GLOVES" class="form-label">GLOVES</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="SH" id="SH">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="DN" id="DN">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="SHEATH" id="SHEATH">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="GLOVES" id="GLOVES">
+            </div>
+        </div>
+        <hr>
+        <div class="row ">
+            <div class="col">
+                <label for="Total Doses" class="form-label">Total Doses</label>
+            </div>
+            <div class="col">
+                <label for="policy Amount" class="form-label">Policy Amount 50/30 or LN2 Amount</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalPackageDose" id="totalPackageDose">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="packageAmount" id="packageAmount">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <label for="GOAT" class="form-label">GOAT</label>
+            </div>
+            <div class="col">
+                <label for="GOAT Amount" class="form-label">GOAT Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total GOAT Amount" class="form-label">Total GOAT Amount</label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="goat" id="goat">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="goatAmount" id="goatAmount" (input)="totalgoat()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalGoat" id="totalGoat">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="row">
+            <div class="col">
+                <label for="SORTED" class="form-label">SORTED</label>
+            </div>
+            <div class="col">
+                <label for="SORTED Amount" class="form-label">SORTED Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total SORTED Amount" class="form-label">Total SORTED Amount</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="sorted" id="sorted">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="sortedAmount" id="sortedAmount" (input)="totalsorted()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalsorted" id="totalsorted">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="row ">
+            <div class="col">
+                <label for="Extra FSD" class="form-label">Extra FSD</label>
+            </div>
+            <div class="col">
+                <label for="FSD Amount" class="form-label">FSD Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total FSD Amount" class="form-label">Total FSD Amount</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="extraFSD" id="extraFSD">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="FSDAmount" id="FSDAmount"
+                    (input)="totalfsd()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalFSD" id="totalFSD">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="row ">
+            <div class="col">
+                <label for="Extra GLOVES" class="form-label">Extra GLOVES</label>
+            </div>
+            <div class="col">
+                <label for="GLOVESAmount" class="form-label">GLOVES Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total GLOVES Amount" class="form-label">Total GLOVES Amount</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="extraAIGloves" id="extraAIGloves">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="AIGlovesAmount" id="AIGlovesAmount"
+                    (input)="totalgloves()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalAIGloves" id="totalAIGloves">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="row ">
+            <div class="col">
+                <label for="Extra SHEATH" class="form-label">Extra SHEATH</label>
+            </div>
+            <div class="col">
+                <label for="SHEATH Amount" class="form-label">SHEATH Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total SHEATH Amount" class="form-label">Total SHEATH Amount</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="extraAISheeth" id="extraAISheeth">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="AISheethAmount" id="AISheethAmount"
+                    (input)="totalSheath()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="totalAISheeth" id="totalAISheeth">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="row ">
+            <div class="col">
+                <label for="LN2" class="form-label">LN2</label>
+            </div>
+            <div class="col">
+                <label for="LN2 Amount" class="form-label">LN2 Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total LN2 Amount" class="form-label">Total LN2 Amount</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="LN2" id="LN2">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="LN2Amount" id="LN2Amount"
+                    (input)="ln2Amount()">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="TotalLN2Amount" id="TotalLN2Amount">
+            </div>
+        </div>
+        <hr>
+        <div class="row ">
+            <div class="col">
+                <label for="Extra Amt" class="form-label">Extra Amount</label>
+            </div>
+            <div class="col">
+                <label for="Total" class="form-label">Total</label>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="extraAmount" id="extraAmount">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="total" id="total">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <label for="GST" class="form-label">GST%</label>
+            </div>
+            <div class="col">
+                <label for="GST Amount" class="form-label">GST Amount</label>
+            </div>
+            <div class="col">
+                <label for="Final" class="form-label">Final Total</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control" formControlName="gstPer" id="gstPer">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="gstAmount" id="gstAmount">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" formControlName="finalTotal" id="finalTotal">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                @if (saleId && isEditMode) {
+                <div class="form-check">
+                    <input style="width: 1.5em; height: 1.5em; margin-right: 5px;" class="form-check-input" type="checkbox" id="onlinePayment"
+                        (change)="onOnlinePaymentChange($event)">
+                    <label style="margin-right: 20px;" class="form-check-label" for="onlinePayment">
+                        Online Payment
+                    </label>
+                    <button type="button" class="btn btn-success" (click)="save()">Save & Print</button>
+                </div>
+                }@else {
+                <button style="margin-right: 20px;" type="button" class="btn btn-info" (click)="calc()">Bill Calculate</button>
+
+                <button type="button" class="btn btn-success" (click)="save()">Save Bill</button>
+
+                }
+            </div>
+        </div>
+    </form>
+    }
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    <div #toast class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ toastMessage }}
+        </div>
+    </div>
+</div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Please Make a Payment of - {{finalTotal}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+            <img src="../../assets/barcode.jpeg" class="img-fluid" alt="Responsive image" style="width: 100%; height: auto;"> <!-- Bootstrap class to make image responsive -->
+        </div>
+        <div class="modal-footer">
+          <h4>Thank You !</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  

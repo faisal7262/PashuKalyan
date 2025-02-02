@@ -1,0 +1,108 @@
+<div id="print-section" class="bill-container">
+  <h6>PASHU - KALYAN FOUNDATION</h6>
+  <p>GST No. 27ACNPF9294L1Z5 </p>
+  <p>Bill Number:{{billNo}} Date:{{billDate}}</p>
+  <p>Center Incharge: {{ customerName }}</p>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>MB</td>
+      <td>{{ saleData.MB }}</td>
+    </tr>
+    <tr>
+      <td>JF</td>
+      <td>{{saleData.JF}}</td>
+    </tr>
+    <tr>
+      <td>PDR</td>
+      <td>{{ saleData.PDR }}</td>
+    </tr>
+    <tr>
+      <td>HF</td>
+      <td>{{saleData.HF}}</td>
+    </tr>
+    <tr>
+      <td>HFX</td>
+      <td>{{saleData.HFX}}</td>
+    </tr>
+    <tr>
+      <td>JB</td>
+      <td>{{ saleData.JB }}</td>
+    </tr>
+    <tr>
+      <td>JBX</td>
+      <td>{{saleData.JBX}}</td>
+    </tr>
+    <tr>
+      <td>KH</td>
+      <td>{{ saleData.KH }}</td>
+    </tr>
+    <tr>
+      <td>RK</td>
+      <td>{{saleData.RK}}</td>
+    </tr>
+    <tr>
+      <td>GIR</td>
+      <td>{{saleData.GIR}}</td>
+    </tr>
+    <tr>
+      <td>SH</td>
+      <td>{{ saleData.SH }}</td>
+    </tr>
+    <tr>
+      <td>DN</td>
+      <td>{{saleData.DN}}</td>
+    </tr>
+    <tr>
+      <td>SHEATH</td>
+      <td>{{ saleData.SHEATH }}</td>
+    </tr>
+    <tr>
+      <td>GLOVES</td>
+      <td>{{saleData.GLOVES}}</td>
+    </tr>
+    <tr>
+      <td>GOAT</td>
+      <td>{{saleData.goat}}</td>
+      <td>{{saleData.totalGoat}}</td>
+    </tr>
+    <tr>
+      <td>SORTED</td>
+      <td>{{saleData.sorted}}</td>
+      <td>{{saleData.totalsorted}}</td>
+    </tr>
+    <tr>
+      <td>Ext. FSD</td>
+      <td>{{ saleData.extraFSD }}</td>
+      <td>{{saleData.totalFSD}}</td>
+    </tr>
+    <tr>
+      <td>AI SHEATH</td>
+      <td>{{ saleData.extraAISheeth }}</td>
+      <td>{{saleData.totalAISheeth}}</td>
+    </tr>
+    <tr>
+      <td>AI GLOVES</td>
+      <td>{{ saleData.extraAIGloves }}</td>
+      <td>{{saleData.totalAIGloves}}</td>
+    </tr>
+    <tr>
+      <td>LN2</td>
+      <td>{{ saleData.LN2 }}</td>
+      <td>{{saleData.TotalLN2Amount}}</td>
+    </tr>
+
+  </table>
+  <p>Policy Amount : {{saleData.packageAmount}}</p>
+  <p>Ext. Amount : {{saleData.extraAmount}}</p>
+  <p>Total Amount : {{ saleData.total }}</p>
+  <p>GST% : {{ saleData.gstPer }}%</p>
+  <p>GST : {{ saleData.gstAmount }}</p>
+  <p>Final Bill : {{ saleData.finalTotal }}</p>
+  <h6>Thank You !</h6>
+  <button (click)="printBill()">Print</button>
+</div>

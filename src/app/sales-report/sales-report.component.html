@@ -1,0 +1,43 @@
+<h3 style="text-align: center;">PASHU - KALYAN FOUNDATION</h3>
+<hr>
+<div class="container mt-4">
+    <div class="d-flex justify-content-center mb-3">
+      <h2>Sales Report
+      </h2>
+    </div>
+    <table class="table table-bordered  table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th colspan="5">
+                    <input type="text" [(ngModel)]="searchText" class="form-control my-3" placeholder="Search Customer">
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">Bill No</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Mobile No.</th>
+                <th scope="col">Sale Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of sale | filter:searchText; track $index; ) {
+            <tr>
+                <th>{{item.billNo}}</th>
+                <td>{{item.customerName}}</td>
+                <td>{{item.mobileNo}}</td>
+                <td>{{item.billDate}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm me-2" (click)="editSale(item)"><i
+                            class="fa fa-edit"></i></button>
+                </td>
+            </tr>
+            }
+            @if (sale.length == 0 || sale === undefined) {
+            <tr>
+                <th colspan="5" style="text-align: center;">No Data</th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

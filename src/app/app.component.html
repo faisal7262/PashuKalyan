@@ -1,0 +1,25 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <div class="icon-after-links">
+          <img src="path/to/your/icon.png" alt="Icon" style="width: 30px;">
+      </div> -->
+          <ul class="navbar-nav">
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active" (click)="navigateToSale()">
+                  <a class="nav-link" routerLink="/sale">Sale</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active" (click)="navigateToSalesReport()">
+                  <a class="nav-link" routerLink="/sales-report">Sales Report</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

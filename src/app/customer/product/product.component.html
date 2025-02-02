@@ -1,0 +1,88 @@
+<div class="container">
+    <form [formGroup]="productForm" class="form-container">
+        <div class="row mb-3">
+            <div class="col">
+                <label for="ProductName" class="form-label">Product Name</label>
+            </div>
+            <div class="col">
+                <label for="min" class="form-label">Min Value</label>
+            </div>
+            <div class="col">
+                <label for="max" class="form-label">Max Value</label>
+            </div>
+            <div class="col">
+                <label for="action" class="form-label">Action</label>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" id="ProductName" formControlName="productName">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" id="min" formControlName="min">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" id="max" formControlName="max">
+            </div>
+            <div class="col">
+                @if (isEditMode) {
+                <button type="button" class="btn btn-info" (click)="addProduct()">Update Customer</button>
+                }
+                @else {
+                <button type="button" class="btn btn-success" (click)="addProduct()">Add Customer</button>
+                }
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container mt-4">
+    <table class="table table-bordered  table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th colspan="4">
+                    <input type="text" [(ngModel)]="searchText" class="form-control my-3" placeholder="Search Customer">
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Min Quantity</th>
+                <th scope="col">Max Quantity</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of products | filter:searchText; track $index; ) {
+            <tr>
+                <th>{{item.productName}}</th>
+                <td>{{item.min}}</td>
+                <td>{{item.max}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm me-2" (click)="editProduct(item)"><i
+                            class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(item._id)"><i
+                            class="fa fa-sharp fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+            }
+            @if (products.length == 0 || products === undefined) {
+            <tr>
+                <th colspan="4" style="text-align: center;">No Data</th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- Toast Notification -->
+<div class="position-fixed position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    <div #toast class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ toastMessage }}
+        </div>
+    </div>
+</div>
