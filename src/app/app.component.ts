@@ -18,4 +18,8 @@ export class AppComponent {
   navigateToSalesReport() {
     this.router.navigate(['/sales-report']);
   }
+
+  navigateToBreadReport() {
+    this.router.navigate(['/bread']);
+  }
 }

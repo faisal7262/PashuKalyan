@@ -12,7 +12,6 @@ export class SaleService {
       httpClient = inject(HttpClient);
 
           addSale(model: Sale) {
-            console.log(model)
             return this.httpClient.post(this.apiUrl + 'sales', model);
           }
 

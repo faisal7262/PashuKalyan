@@ -1,0 +1,28 @@
+.bill-container {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    width: 80mm; /* Width for thermal printer paper */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bill-container h6, .bill-container p {
+    margin: 0;
+    padding: 2px 0;
+  }
+  
+  .bill-container table {
+    width:60%;
+    border-collapse: collapse;
+  }
+  
+//   .bill-container tr, .bill-container tr {
+//     border: 1px solid black;
+//     padding: 1px;
+//     text-align: left;
+//   }
+  
+  .bill-container button {
+    display: none; /* Hide button during printing */
+  }
+  

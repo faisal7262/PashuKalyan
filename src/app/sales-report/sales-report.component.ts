@@ -26,11 +26,9 @@ export class SalesReportComponent {
   loadSales() {
     this.saleService.getSales().subscribe((res) => {
       this.sale = res;
-      console.log('sales',this.sale)
     })
   }
   editSale(pack: any) {
-    console.log('selected customer data', pack)
     this.isEditMode = true;
     this.saleId = pack._id;
     this.router.navigate(['/sale',this.saleId,this.isEditMode])

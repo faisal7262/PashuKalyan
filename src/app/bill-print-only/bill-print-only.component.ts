@@ -33,7 +33,6 @@ export class BillPrintOnlyComponent {
       this.billDate = this.saleData.billDate.split('T')[0];
       this.customerName = this.saleData.customerName;
       this.billNo = this.saleData.billNo;
-      console.log(this.saleData)
     })
   }
 

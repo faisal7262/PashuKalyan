@@ -1,0 +1,100 @@
+<h3 style="text-align: center;">PASHU - KALYAN FOUNDATION</h3>
+<hr>
+<div class="container mt-4">
+    <div class="d-flex justify-content-center mb-3">
+      <h2>Order Report
+      </h2>
+    </div>
+    <table class="table table-bordered  table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th colspan="5">
+                    <input type="date" [(ngModel)]="searchText" (change)="change($event)" class="form-control my-3" placeholder="Search Sale">
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>MB</th>
+                <td>{{MB}}</td>
+            </tr>
+            <tr>
+                <th>JF</th>
+                <td>{{JF}}</td>
+            </tr>
+            <tr>
+                <th>PDR</th>
+                <td>{{PDR}}</td>
+            </tr>
+            <tr>
+                <th>HF</th>
+                <td>{{HF}}</td>
+            </tr>
+            <tr>
+                <th>HFX</th>
+                <td>{{HFX}}</td>
+            </tr>
+            <tr>
+                <th>JB</th>
+                <td>{{JB}}</td>
+            </tr>
+            <tr>
+                <th>JBX</th>
+                <td>{{JBX}}</td>
+            </tr>
+            <tr>
+                <th>KH</th>
+                <td>{{KH}}</td>
+            </tr>
+            <tr>
+                <th>RK</th>
+                <td>{{RK}}</td>
+            </tr>
+            <tr>
+                <th>GIR</th>
+                <td>{{GIR}}</td>
+            </tr>
+            <tr>
+                <th>SH</th>
+                <td>{{SH}}</td>
+            </tr>
+            <tr>
+                <th>DN</th>
+                <td>{{DN}}</td>
+            </tr>
+            <!-- ///////// -->
+            <tr>
+                <th>SHEATH</th>
+                <td>{{SHEATH}}</td>
+            </tr>
+            <tr>
+                <th>GLOVES</th>
+                <td>{{GLOVES}}</td>
+            </tr>
+            <tr>
+                <th>GOAT</th>
+                <td>{{goat}}</td>
+            </tr>
+            <tr>
+                <th>SORTED</th>
+                <td>{{sorted}}</td>
+            </tr>
+            <!-- <tr>
+                <th>EXT. AI GLOVES</th>
+                <td>{{extraAIGloves}}</td>
+            </tr>
+            <tr>
+                <th>EXT. AI SHEATH</th>
+                <td>{{extraAISheeth}}</td>
+            </tr> -->
+            <tr>
+                <th>TOTAL QUANTITY</th>
+                <th>{{TotalQuantity}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

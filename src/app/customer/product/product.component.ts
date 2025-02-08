@@ -39,7 +39,6 @@ export class ProductComponent {
   loadProduct() {
     this.productService.getProduct().subscribe((result) => {
       this.products = result;
-      console.log('products', this.products)
     });
   }
 
@@ -78,7 +77,6 @@ export class ProductComponent {
   }
 
   editProduct(product: any) {
-    console.log('selected customer data', product)
     this.isEditMode = true;
     this.productForm.patchValue(product);
     this.productId = product._id;

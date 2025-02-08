@@ -37,21 +37,14 @@ export class SaleComponent {
       this.saleId = params['saleId'];
       this.isEditMode = params['isEditMode'];
     });
-    console.log('call', this.saleId + '---------' + this.isEditMode)
 
     if (this.saleId && this.isEditMode) {
-      console.log('call', this.saleId + '---------' + this.isEditMode)
       this.saleService.getSale(this.saleId).subscribe(res => {
 
         this.saleData = res;
-        console.log(this.saleData)
         const datebill = this.saleData.billDate;
-        console.log('datebill', datebill)
         this.saleData.billDate = datebill.split('T')[0];
-        console.log(this.saleData)
-        console.log('Form Before Patch:', this.saleForm.value);
         this.saleForm.patchValue(this.saleData);
-        console.log('Form After Patch:', this.saleForm.value);
       });
     }
     this.getCustomers();
@@ -121,7 +114,6 @@ export class SaleComponent {
         const month = String(today.getMonth() + 1).padStart(2, '0'); // Adding leading zero
         const year = today.getFullYear();
         const formattedDate = `${year}-${month}-${day}`; // Format: YYYY-MM-DD
-        console.log('formatted date', formattedDate);
         this.saleForm.get('billDate')?.setValue(formattedDate);
       })
     }
@@ -130,7 +122,6 @@ export class SaleComponent {
   getCustomers() {
     this.customerService.getCustomer().subscribe((res) => {
       this.customers = res;
-      console.log(this.customers);
     });
   }
 
@@ -139,12 +130,28 @@ export class SaleComponent {
   Village: any;
   mobile: any;
   changeCustomer(e: any) {
-    console.log(e.target.value)
     this.customer = this.customers.find((cust) => cust._id == e.target.value);
     this.fullname = this.customer.firstName + ' ' + this.customer.lastName;
     this.mobile = this.customer.mobile;
     this.Village = this.customer.Village;
-    console.log(this.customer);
+  }
+
+  onFocus() {
+    let mb = this.saleForm.get('MB')?.value || 0;
+    let jf = this.saleForm.get('JF')?.value || 0;
+    let pdr = this.saleForm.get('PDR')?.value || 0;
+    let hf = this.saleForm.get('HF')?.value || 0;
+    let hfx = this.saleForm.get('HFX')?.value || 0;
+    let jb = this.saleForm.get('JB')?.value || 0;
+    let jbx = this.saleForm.get('JBX')?.value || 0;
+    let kh = this.saleForm.get('KH')?.value || 0;
+    let rk = this.saleForm.get('RK')?.value || 0;
+    let gir = this.saleForm.get('GIR')?.value || 0;
+    let sh = this.saleForm.get('SH')?.value || 0;
+    let dn = this.saleForm.get('DN')?.value || 0;
+    let doseCal = mb + jf + pdr + hf + hfx + jb + jbx + kh + rk + gir + sh + dn;
+    this.saleForm.get('totalPackageDose')?.setValue(doseCal);
+
   }
 
   totalfsd() {
@@ -189,7 +196,6 @@ export class SaleComponent {
 
   onOnlinePaymentChange(event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    console.log('Online Payment:', inputElement.checked);
     let isOnlinePayment = inputElement.checked;
     if (isOnlinePayment) {
       this.withGST()

@@ -39,7 +39,6 @@ export class PackageComponent {
     loadPackage() {
       this.packageService.getPackage().subscribe((result) => {
         this.packages = result;
-        console.log('products', this.packages)
       });
     }
 
@@ -78,7 +77,6 @@ export class PackageComponent {
       }
 
       editPackage(pack: any) {
-        console.log('selected customer data', pack)
         this.isEditMode = true;
         this.packageForm.patchValue(pack);
         this.packageId = pack._id;

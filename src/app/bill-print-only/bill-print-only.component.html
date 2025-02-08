@@ -1,12 +1,13 @@
 <div id="print-section" class="bill-container">
-  <h6>PASHU - KALYAN FOUNDATION</h6>
+  <img src="../../assets/logo.jpeg" class="img-fluid" alt="Responsive image" style="max-width: 45%; height: 45%;"> <!-- Adjusted CSS for better fit -->  
   <p>GST No. 27ACNPF9294L1Z5 </p>
-  <p>Bill Number:{{billNo}} Date:{{billDate}}</p>
+  <p>Bill Number:{{billNo}} &nbsp; &nbsp; Date:{{billDate}}</p>
   <p>Center Incharge: {{ customerName }}</p>
+  <p>----------------------------------------------------</p>
   <table>
     <tr>
       <th>Item</th>
-      <th>Quantity</th>
+      <th>QTY</th>
       <th>Price</th>
     </tr>
     <tr>
@@ -97,12 +98,15 @@
     </tr>
 
   </table>
+  <p>----------------------------------------------------</p>
   <p>Policy Amount : {{saleData.packageAmount}}</p>
   <p>Ext. Amount : {{saleData.extraAmount}}</p>
-  <p>Total Amount : {{ saleData.total }}</p>
+  <p>Sub Amount  : {{ saleData.total }}</p>
   <p>GST% : {{ saleData.gstPer }}%</p>
-  <p>GST : {{ saleData.gstAmount }}</p>
-  <p>Final Bill : {{ saleData.finalTotal }}</p>
+  <p>GST  : {{ saleData.gstAmount }}</p>
+  <p>----------------------------------------------------</p>
+  <p>Grand Total : {{ saleData.finalTotal }}</p>
+  <p>----------------------------------------------------</p>
   <h6>Thank You !</h6>
   <button (click)="printBill()">Print</button>
 </div>

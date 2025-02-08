@@ -43,7 +43,6 @@ export class CustomerComponent {
   }
 
   editCustomer(customer: any) {
-    console.log('selected customer data',customer)
     this.isEditMode = true;
     this.selectedCustomer = customer;
     

@@ -40,7 +40,6 @@ export class AddCustomerComponent {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (this.isEditMode && this.customerData) {
-      console.log(this.isEditMode)
       this.customerForm.patchValue(this.customerData);
     } else {
       this.customerForm.reset();
@@ -48,8 +47,6 @@ export class AddCustomerComponent {
   }
 
   addCustomer() {
-    console.log(this.isEditMode);
-    console.log(this.customerData);;
     if (this.customerForm.invalid) {
       this.toastMessage = "please provide all fields with valid data !";
       this.showToast();
@@ -72,7 +69,6 @@ export class AddCustomerComponent {
         this.customerAdded.emit();
         this.customerForm.reset();
       });
-      console.log(this.customerForm.value)
     }
 
   }
